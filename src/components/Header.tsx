@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-export default function Header() {
+export default function Header({partsWeight} : any) {
+  const [accumlateWeight, setAccumulateWeight] = useState('');
+
+  useEffect(() => {
+    setAccumulateWeight(prev => (Number(prev) + Number(partsWeight)).toString());
+  }, [partsWeight])
+
   return (
     <Head>
       <TotalWeightBox>
-
+        {accumlateWeight}
       </TotalWeightBox>
 
       <ResetButton>
@@ -17,8 +23,8 @@ export default function Header() {
 
 const Head = styled.header`
   display: flex;
-  margin-left: 3rem;
-  padding-top: 3rem;
+  margin-left: 5rem;
+  padding-top: 5rem;
 `;
 
 const TotalWeightBox = styled.div`
@@ -26,6 +32,9 @@ const TotalWeightBox = styled.div`
   height: 2rem;
   border:1px solid #eaeaea;
   margin-right: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const ResetButton = styled.button`

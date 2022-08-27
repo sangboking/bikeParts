@@ -4,25 +4,15 @@ import Header from '../components/Header';
 import RimMechanicalShift from '../components/rims/RimMechanicalShift';
 import { rimMechanicalShiftData } from '../data';
 
-export interface IPartsData {
-  name : string,
-  shifters:number,
-  readD:number,
-  frontD:number,
-  cranks:number,
-  cass:number,
-  chain:number,
-  brakes:number,
-}
-
 export default function Home() {
-  const [rimMsParts, setRimMsParts] = useState<IPartsData[]>(rimMechanicalShiftData);
+  const rimMsParts = rimMechanicalShiftData;
+  const [partsWeight, setPartsWeight] = useState('');
  
   return (
     <Wrapper>
-      <Header />
+      <Header partsWeight={partsWeight}/>
 
-      <RimMechanicalShift rimMsParts={rimMsParts} setRimMsParts={setRimMsParts}/>
+      <RimMechanicalShift rimMsParts={rimMsParts} setPartsWeight={setPartsWeight}/>
     </Wrapper>
   )
 };
@@ -32,6 +22,7 @@ const Wrapper = styled.div`
   height: 100vh;
   margin:0 auto;
   background-color: pink;
+  overflow-y: scroll;
 `;
 
 
