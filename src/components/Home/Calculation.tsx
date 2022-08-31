@@ -1,20 +1,32 @@
 import React, { useEffect, useState } from 'react';
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
+import { partsAtom, partsNameAtom, partsWeightAtom } from '../../atoms';
 
-export default function Header({partsWeight} : any) {
-  const [accumlateWeight, setAccumulateWeight] = useState('');
+export default function Calculation() {
+  const parts = useRecoilValue(partsAtom);
+  const partsName = useRecoilValue(partsNameAtom);
+  const partsWeight = useRecoilValue(partsWeightAtom);
+  const [totalWeight, setTotalWeight] = useState(0);
+
+  console.log(parts);
+  console.log(partsName);
 
   useEffect(() => {
-    setAccumulateWeight(prev => (Number(prev) + Number(partsWeight)).toString());
+    setTotalWeight(prev => prev + partsWeight)
   }, [partsWeight])
+  
+  const handleResetClick = () => {
+   setTotalWeight(0);
+  };
 
   return (
     <Head>
       <TotalWeightBox>
-        {accumlateWeight}
+        {totalWeight}
       </TotalWeightBox>
 
-      <ResetButton>
+      <ResetButton onClick={handleResetClick}>
         Reset
       </ResetButton>
     </Head>

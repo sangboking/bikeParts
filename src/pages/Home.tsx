@@ -1,18 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import Header from '../components/Header';
-import RimMechanicalShift from '../components/rims/RimMechanicalShift';
-import { rimMechanicalShiftData } from '../data';
+import Calculation from '../components/Home/Calculation';
+import RimMechanicalShift from '../containers/rims/RimMechanicalShift';
 
 export default function Home() {
-  const rimMsParts = rimMechanicalShiftData;
-  const [partsWeight, setPartsWeight] = useState('');
- 
   return (
     <Wrapper>
-      <Header partsWeight={partsWeight}/>
+      <Calculation />
 
-      <RimMechanicalShift rimMsParts={rimMsParts} setPartsWeight={setPartsWeight}/>
+      <RimMechanicalShift />
     </Wrapper>
   )
 };
@@ -20,8 +16,8 @@ export default function Home() {
 const Wrapper = styled.div`
   width:100%;
   height: 100vh;
+  background-color: #f5f6f8;
   margin:0 auto;
-  background-color: pink;
   overflow-y: scroll;
 `;
 
