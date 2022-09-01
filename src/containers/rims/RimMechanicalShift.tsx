@@ -9,13 +9,13 @@ export default function MechanicalShift() {
   const rimMsParts :IBikePartsData[] = [...rimMechanicalShiftData];
   
   const headData = [...headerData];
-  headData[0] = 'Mechanical Shift';
+  headData[0] = 'Mechanical Shift(Rim)';
 
   return (
     <Wrapper>
       <TableHead headData={headData}/>
 
-      <TableContainer rimMsParts={rimMsParts}/>
+      <TableContainer bikeData={rimMsParts}/>
     </Wrapper>
   )
 };

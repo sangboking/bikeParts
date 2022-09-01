@@ -8,6 +8,7 @@ export default function Calculation() {
   const partsName = useRecoilValue(partsNameAtom);
   const partsWeight = useRecoilValue(partsWeightAtom);
   const [totalWeight, setTotalWeight] = useState(0);
+  
   useEffect(() => {
     setTotalWeight(prev => prev + partsWeight)
   }, [partsWeight])

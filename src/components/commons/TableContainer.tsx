@@ -6,10 +6,10 @@ import { IBikePartsData } from '../../data';
 import { getKeyByValue } from '../../lib/utils';
 
 type Props = {
-  rimMsParts : IBikePartsData[] 
+  bikeData : IBikePartsData[] 
 }
 
-export default function TableContainer({rimMsParts} : Props) {
+export default function TableContainer({ bikeData } : Props) {
   const setParts = useSetRecoilState(partsAtom);
   const setPartsName = useSetRecoilState(partsNameAtom);
   const setPartsWeight = useSetRecoilState(partsWeightAtom);
@@ -24,7 +24,7 @@ export default function TableContainer({rimMsParts} : Props) {
   return (
     <TableContainerWrapper>
     {
-      rimMsParts.map((parts : IBikePartsData) => {
+      bikeData.map((parts : IBikePartsData) => {
         return(
           <ContainerColumn key={parts.name}>        
             <ContainerColumnBox onClick={() => { handleClick(parts, parts.name, parts.name)}}>
@@ -39,11 +39,21 @@ export default function TableContainer({rimMsParts} : Props) {
             <ContainerColumnBox onClick={() => { handleClick(parts, parts.frontD, parts.name)}}>
               {parts.frontD}
             </ContainerColumnBox>
-            <ContainerColumnBox onClick={() => { handleClick(parts, parts.cranks, parts.name)}}>{parts.cranks}</ContainerColumnBox>
-            <ContainerColumnBox onClick={() => { handleClick(parts, parts.cass, parts.name)}}>{parts.cass}</ContainerColumnBox>
-            <ContainerColumnBox onClick={() => { handleClick(parts, parts.chain, parts.name)}}>{parts.chain}</ContainerColumnBox>
-            <ContainerColumnBox onClick={() => { handleClick(parts, parts.brakes, parts.name)}}>{parts.brakes}</ContainerColumnBox>
-            <ContainerColumnBox onClick={() => { handleClick(parts, parts.total, parts.name)}}>{parts.total}</ContainerColumnBox>
+            <ContainerColumnBox onClick={() => { handleClick(parts, parts.cranks, parts.name)}}>
+              {parts.cranks}
+            </ContainerColumnBox>
+            <ContainerColumnBox onClick={() => { handleClick(parts, parts.cass, parts.name)}}>
+              {parts.cass}
+            </ContainerColumnBox>
+            <ContainerColumnBox onClick={() => { handleClick(parts, parts.chain, parts.name)}}>
+              {parts.chain}
+            </ContainerColumnBox>
+            <ContainerColumnBox onClick={() => { handleClick(parts, parts.brakes, parts.name)}}>
+              {parts.brakes}
+            </ContainerColumnBox>
+            <ContainerColumnBox onClick={() => { handleClick(parts, parts.total, parts.name)}}>
+              {parts.total}
+            </ContainerColumnBox>
           </ContainerColumn>
         )
       })
@@ -54,7 +64,7 @@ export default function TableContainer({rimMsParts} : Props) {
 
 const TableContainerWrapper = styled.section`
   width: 100%;
-  height: 32rem;
+  height: 19.5rem;
   background-color: #fff;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
@@ -79,4 +89,7 @@ const ContainerColumnBox = styled.div`
  :last-child{
   border-right: none;
  }
+ :first-child{
+    font-size: .8rem;
+  }
 `;

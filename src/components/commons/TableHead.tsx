@@ -33,4 +33,6 @@ const HeadTitleBox = styled.div`
   justify-content: center;
   border-right: 1px solid #eaeaea;
   border-bottom: 1px solid #eaeaea;
+  font-size: .8rem;
+
 `;
