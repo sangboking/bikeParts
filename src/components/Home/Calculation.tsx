@@ -32,7 +32,9 @@ export default function Calculation() {
 
 const Head = styled.header`
   display: flex;
-  margin-left: 5rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
   padding-top: 5rem;
 `;
 

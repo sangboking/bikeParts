@@ -23,6 +23,7 @@ const Wrapper = styled.section`
   width: 81rem;
   height: 31rem;
   background-color: #fff;
-  margin: 3rem 0 3rem 5rem;
+  margin: 0 auto;
+  margin-bottom: 3rem;
   border-radius: 1rem;
 `;
