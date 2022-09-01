@@ -17,6 +17,8 @@ export default function Calculation() {
    setTotalWeight(0);
   };
 
+  console.log(parts, partsName)
+
   return (
     <Head>
       <TotalWeightBox>
