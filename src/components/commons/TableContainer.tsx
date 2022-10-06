@@ -27,8 +27,8 @@ export default function TableContainer({ bikeData }: Props) {
   ) => {
     const key = getKeyByValue(parts, value);
     console.log(key)
-    // setParts(name);
-    // setPartsName(key);
+    setParts(name);
+    setPartsName(key);
     if(key === 'shifters'){
       setShifterWeight(Number(value));
     };
