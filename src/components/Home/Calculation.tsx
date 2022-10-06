@@ -1,23 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
-import { partsAtom, partsNameAtom, partsWeightAtom } from '../../atoms';
+import { partsAtom, partsNameAtom, brakeWeightAtom, cassWeightAtom, chainWeightAtom, crankWeightAtom, frontDWeightAtom, rearDWeightAtom, shifterWeightAtom} from '../../atoms';
 
 export default function Calculation() {
   const parts = useRecoilValue(partsAtom);
   const partsName = useRecoilValue(partsNameAtom);
-  const partsWeight = useRecoilValue(partsWeightAtom);
+  const shifterWeight = useRecoilValue(shifterWeightAtom);
+  const rearDWeight = useRecoilValue(rearDWeightAtom);
+  const frontDWeight = useRecoilValue(frontDWeightAtom);
+  const crankWeight = useRecoilValue(crankWeightAtom);
+  const cassWeight = useRecoilValue(cassWeightAtom);
+  const chainWeight = useRecoilValue(chainWeightAtom);
+  const brakeWeight = useRecoilValue(brakeWeightAtom);
   const [totalWeight, setTotalWeight] = useState(0);
   
-  useEffect(() => {
-    setTotalWeight(prev => prev + partsWeight)
-  }, [partsWeight])
-  
-  const handleResetClick = () => {
-   setTotalWeight(0);
+  const handleCalculationClick = () => {
+    return setTotalWeight(shifterWeight+rearDWeight+frontDWeight+crankWeight+cassWeight+chainWeight+brakeWeight);
   };
 
-  console.log(parts, partsName)
+  const handleResetClick = () => {
+   window.location.reload();
+  };
 
   return (
     <Head>
@@ -25,8 +29,12 @@ export default function Calculation() {
         {totalWeight}
       </TotalWeightBox>
 
+      <CalculationButton onClick={handleCalculationClick}>
+        계산
+      </CalculationButton>
+
       <ResetButton onClick={handleResetClick}>
-        Reset
+        리셋
       </ResetButton>
     </Head>
   )
@@ -55,4 +63,12 @@ const ResetButton = styled.button`
   height: 2rem;
   border-radius: 1rem;
   cursor: pointer;
+`;
+
+const CalculationButton = styled.button`
+  width: 5rem;
+  height: 2rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  margin-right: 2rem;
 `;
