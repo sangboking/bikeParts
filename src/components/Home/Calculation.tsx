@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
-import { partsAtom, partsNameAtom, brakeWeightAtom, cassWeightAtom, chainWeightAtom, crankWeightAtom, frontDWeightAtom, rearDWeightAtom, shifterWeightAtom} from '../../atoms';
+import { brakeWeightAtom, cassWeightAtom, chainWeightAtom, crankWeightAtom, frontDWeightAtom, rearDWeightAtom, shifterWeightAtom} from '../../atoms';
 
 export default function Calculation() {
   const shifterWeight = useRecoilValue(shifterWeightAtom);
