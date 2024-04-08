@@ -12,17 +12,7 @@ export default function Home() {
     });
   }, []);
 
-  return (
-    <Wrapper>
-      {/* <Calculation />
-
-      <RimMechanicalShift />
-      <RimElectronicShift />
-      <DiscMechanicalShift />
-      <DiscElectronicShift /> */}
-      자전거11111111
-    </Wrapper>
-  );
+  return <Wrapper> 자전거11111111</Wrapper>;
 }
 
 const Wrapper = styled.div`
